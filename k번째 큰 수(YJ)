@@ -1,0 +1,11 @@
+n, k = map(int, input().split())
+a = list(map(int, input().split()))
+b = set()     #3개의 수를 더할때, 더했을때 중복되는 숫자를 제거하기 위해 집합 사용
+for i in range(n-2):
+    for j in range(i+1, n-1):
+        for x in range(j+1, n):
+            total = a[i] + a[j] + a[x] 
+            b.add(total)  
+b = list(b)
+b.sort(reverse = True)
+print(b[k-1])
