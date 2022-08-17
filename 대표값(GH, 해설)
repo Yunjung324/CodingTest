@@ -1,0 +1,32 @@
+#(GH코드)
+n = int(input())
+score = list(map(int, input().split()))
+now = 10000
+res = 0
+avg = round(sum(score) / n)
+for i in range(n):
+    if abs(score[i]-avg) < abs(now-avg):
+        now = score[i]
+        res = i+1
+    elif abs(score[i]-avg) == abs(now-avg):
+        if now < score[i]:
+            now = score[i]
+            res = i+1
+print(avg, res)
+
+#다른 코드
+n = int(input())
+a = list(map(int, input().split()))
+ave = round(sum(a)/n)
+min = 2147000000
+for idx, x in enumerate(a):    #idx=학생번호, x=학생의 성적, enumerate란 앞에는 인덱스값, 뒤에는 값을 대응해줌
+    tmp = abs(x-ave)   #학생성적-평균값
+    if tmp < min:
+        min = tmp
+        score = x    #답이 되는 점수도 score에 저장
+        res = idx+1    #학생 번호
+    elif tmp == min:   #점수와 평균값의 차이가 같은 경우
+        if x>score:    #그 이전의 학생의 점수보다 큰 경우
+            score = x    #학생의 점수를 바꾸고
+            res = idx+1  #학생의 번호를 바꿔라
+print(ave, res)
