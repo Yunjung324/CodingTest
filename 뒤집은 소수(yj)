@@ -1,0 +1,24 @@
+#답안
+def reverse(x):
+    res = 0
+    while x > 0:
+        t = x%10   #x의 1의 자리 숫자가 t
+        res = res*10+t
+        x = x//10
+    return res
+
+def isPrime(x):
+    if x == 1:
+        return False   #바로 종료해버리기
+    for i in range(2, x//2+1):  #절반까지 돌기
+        if x%i == 0:   #약수가 발견되는 경우
+            return False
+    else:
+        return True  #정상적으로 종료되는 경우
+
+n = int(input())
+a = list(map(int, input().split()))
+for x in a:
+    tmp = reverse(x)   #reverse 함수에서 받은 값을 tmp에 저장
+    if isPrime(tmp):
+        print(tmp, end = ' ')
