@@ -1,0 +1,10 @@
+n = int(input())
+a = list(map(int, input().split()))
+sum = 0
+cnt = 0
+for x in a:    #이거 잘 사용해보기.. 너무 어렵게 생각하지 말기
+    if x == 1:
+        cnt += 1
+        sum += cnt
+    else:
+        cnt = 0
