@@ -1,0 +1,33 @@
+#내 코드
+n = int(input())
+b = []
+for i in range(n):
+    a = input()
+    b.append(a.upper())
+    if b[i][:] == b[i][::-1]:
+        print('#%d YES' %(i+1))
+    else:
+        print('#%d NO' %(i+1))
+
+# 답안 1 - 이게 기업에서 추구하는 방안(내 코드나 아래 코드는 파이썬스럽지만 좋지 않음)
+n = int(input())
+for i in range(n):
+    s = input()
+    s = s.upper()    #대소문자 구별 안하기 때문에 전체를 다 대문자로
+    size = len(s)
+    for j in range(size//2):
+        if s[j] != s[-1-j]:
+            print("#%d NO" %(i+1))
+            break
+        else:
+            print("#%d YES" %(i+1))
+
+#답안 2
+n = int(input())
+for i in range(n):
+    s = input()
+    s = s.upper()
+    if s==s[::-1]:
+        print('#%d YES' %(i+1))
+    else:
+        print('#%d NO' %(i+1))
