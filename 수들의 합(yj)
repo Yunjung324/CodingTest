@@ -1,0 +1,22 @@
+
+n, m = map(int, input().split())
+a = list(map(int, input().split()))
+lt = 0
+rt = 1
+tot = a[0]  #tot는 첫번째부터 시작
+cnt = 0
+while True:
+    if tot<m:
+        if rt < n:
+            tot += a[rt]
+            rt += 1
+        else:   #더이상 플러스할 자료가 없는 경우
+            break
+    elif tot == m:  #총합이 m과 같은 경우
+        cnt += 1
+        tot -= a[lt]  #왼쪽 지정값을 총합에서 빼주고
+        lt += 1   #왼쪽 포인트를 이동시키기
+    else:   #총합이 m보다 큰 경우
+        tot -= a[lt]   #총합에서 왼쪽 지정값을 빼주고
+        lt += 1    #왼쪽 포인트 하나씩 이동
+print(cnt)
