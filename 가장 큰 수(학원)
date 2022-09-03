@@ -1,0 +1,12 @@
+num, m = map(int, input().split()) #현수가 받은 숫자와 제거해야할 숫자의 개수를 입력받고
+num = list(map(int, str(num))) #현수가 받은 숫자를 자릿수를 기준으로 분류하여 나눈 후 list로 변환해주기(num)
+stack = [] #stack이라는 list 생성
+for x in num: #num의 각 숫자를 하나씩 for문 돌리기
+    while stack and m>0 and stack[-1]<x: #제거해야할 자릿수가 0이상, stack의 마지막 수가 x보다 작은 경우
+        stack.pop() #stack에 있는 마지막 숫자를 pop
+        m -= 1  #제거하고 난 다음이므로 앞으로 제거해야할 개수는 기존 개수-1
+    stack.append(x)  #while문의 조건에 해당하지 않는 경우 x를
+if m != 0:  #제거해야할 자릿수가 0이 아닌 경우
+    stack = stack[-m]  
+res =''.join(map(str, stack))    #결과값은 stack의 숫자를 모두 붙여서 출력하는 것
+print(res)
