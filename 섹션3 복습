@@ -7,8 +7,8 @@
 #         if s[j] != s[-j-1]:
 #             print('#%d NO' %(i+1))
 #             break
-#         else:
-#             print('#%d YES' %(i+1))
+#      else:
+#         print('#%d YES' %(i+1))
 
 # #숫자만 추출
 # s = input()
